@@ -45,44 +45,84 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 
 4-bit Count Down Counter
-### Procedure
-/* write all the steps invloved */
+### Procedure:
+1.Set the input as clock.
+
+2.Register the output of 4 bit.
+
+3.Use Posedge on the input clock.
+
+4.For Up counter use AND and OR gates to declare the value of each bit.
+
+5.For Down counter use AND, OR and NOT gates to declare the value of each bit.
+
+6.End the module.
 
 
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
 
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by:NARENDRAN D
+Register no:212222240069
+# UP COUNTER
+```
+module up(clk,A);
+input clk;
+output reg [3:0]A;
+always@(posedge clk)
+begin
+A[3]=((A[2]&A[1])&A[0])^A[3];
+A[2]=(A[1]&A[0])^A[2];
+A[1]=(A[0]^A[1]);
+A[0]=1^A[0];
+end
+endmodule
+
+```
+# DOWN COUNTER:
+```
+
+module down(clk,A);
+input clk;
+output reg [3:0]A;
+always @(posedge clk)
+begin
+A[3]=((~A[2])&(~A[1])&(~A[0]))^A[3];
+A[2]=((~A[1])&(~A[0]))^A[2];
+A[1]=(~A[0])^A[1];
+A[0]=1^A[0];
+end
+endmodule
+```
 
 
 
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+# UP COUNTER
+![image](https://github.com/naren2704/Exp-7-Synchornous-counters-/assets/118706984/5a889b52-e9ee-41e2-a720-18dd1fb76fa4)
 
+# DOWN COUNTER
 
-
-
-
-
-
+![image](https://github.com/naren2704/Exp-7-Synchornous-counters-/assets/118706984/89aed90a-ffd8-45aa-8590-74465b4246f8)
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+# UP COUNTER
+![image](https://github.com/naren2704/Exp-7-Synchornous-counters-/assets/118706984/8b762c4a-d560-43eb-97cb-4f3dfead2a35)
 
-
-
-
+# DOWN COUNTER
+![image](https://github.com/naren2704/Exp-7-Synchornous-counters-/assets/118706984/d5a8ebf5-b10d-433a-90d3-ffc6caea282d)
 
 ### TRUTH TABLE 
+# UP COUNTER
+![image](https://github.com/naren2704/Exp-7-Synchornous-counters-/assets/118706984/2be9199e-118d-40e5-b159-8f6a9bbe2f4b)
 
 
-
-
-
+# DOWN COUNTER
+![image](https://github.com/naren2704/Exp-7-Synchornous-counters-/assets/118706984/02fcb2ef-ba7b-4459-8d78-2751d71c9ac2)
 
 ### RESULTS 
+Thus the program has been executed successfully.
